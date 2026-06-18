@@ -1,0 +1,61 @@
+Data,Produto,Categoria,Regiao,Vendedor,Qtd,Valor_Unitario,Custo_Unitario,Valor_Venda,Custo_Total
+2024-01-03,Notebook Pro,Eletrônicos,Sul,Ana Lima,2,3500,2100,7000,4200
+2024-01-05,Mouse Gamer,Periféricos,Norte,Carlos Souza,10,280,140,2800,1400
+2024-01-07,Teclado Mecânico,Periféricos,Sudeste,Juliana Rocha,5,450,210,2250,1050
+2024-01-10,Monitor 27pol,Monitores,Centro-Oeste,Marcos Ferreira,3,1800,1080,5400,3240
+2024-01-12,Headset Pro,Periféricos,Nordeste,Beatriz Alves,8,350,175,2800,1400
+2024-01-15,SSD 1TB,Armazenamento,Sul,Ana Lima,15,480,240,7200,3600
+2024-01-18,Webcam HD,Periféricos,Norte,Carlos Souza,6,320,160,1920,960
+2024-01-20,Notebook Ultra,Eletrônicos,Sudeste,Juliana Rocha,1,6200,3720,6200,3720
+2024-01-22,Cadeira Gamer,Mobiliário,Centro-Oeste,Marcos Ferreira,2,1500,750,3000,1500
+2024-01-25,HD Externo 2TB,Armazenamento,Nordeste,Beatriz Alves,4,380,190,1520,760
+2024-02-02,Notebook Pro,Eletrônicos,Sul,Ana Lima,3,3500,2100,10500,6300
+2024-02-05,Mouse Gamer,Periféricos,Norte,Carlos Souza,12,280,140,3360,1680
+2024-02-08,Monitor 27pol,Monitores,Sudeste,Juliana Rocha,4,1800,1080,7200,4320
+2024-02-10,Teclado Mecânico,Periféricos,Centro-Oeste,Marcos Ferreira,7,450,210,3150,1470
+2024-02-12,SSD 1TB,Armazenamento,Nordeste,Beatriz Alves,20,480,240,9600,4800
+2024-02-15,Headset Pro,Periféricos,Sul,Ana Lima,6,350,175,2100,1050
+2024-02-18,Webcam HD,Periféricos,Norte,Carlos Souza,9,320,160,2880,1440
+2024-02-20,Notebook Ultra,Eletrônicos,Sudeste,Juliana Rocha,2,6200,3720,12400,7440
+2024-02-22,Mesa Gamer,Mobiliário,Centro-Oeste,Marcos Ferreira,3,980,490,2940,1470
+2024-02-25,Hub USB-C,Periféricos,Nordeste,Beatriz Alves,14,190,95,2660,1330
+2024-03-03,Notebook Pro,Eletrônicos,Sul,Ana Lima,4,3500,2100,14000,8400
+2024-03-06,Monitor 32pol,Monitores,Norte,Carlos Souza,2,2800,1680,5600,3360
+2024-03-10,SSD 2TB,Armazenamento,Sudeste,Juliana Rocha,8,720,360,5760,2880
+2024-03-12,Teclado Slim,Periféricos,Centro-Oeste,Marcos Ferreira,10,290,145,2900,1450
+2024-03-15,Headset Pro,Periféricos,Nordeste,Beatriz Alves,12,350,175,4200,2100
+2024-03-18,Notebook Ultra,Eletrônicos,Sul,Ana Lima,3,6200,3720,18600,11160
+2024-03-20,Cadeira Ergonômica,Mobiliário,Norte,Carlos Souza,4,2200,1100,8800,4400
+2024-03-22,Mouse Sem Fio,Periféricos,Sudeste,Juliana Rocha,18,180,90,3240,1620
+2024-03-25,Monitor 27pol,Monitores,Centro-Oeste,Marcos Ferreira,5,1800,1080,9000,5400
+2024-03-28,Hub USB-C,Periféricos,Nordeste,Beatriz Alves,20,190,95,3800,1900
+2024-04-02,Notebook Pro,Eletrônicos,Sul,Ana Lima,2,3650,2190,7300,4380
+2024-04-05,SSD 1TB,Armazenamento,Norte,Carlos Souza,25,480,240,12000,6000
+2024-04-08,Monitor 27pol,Monitores,Sudeste,Juliana Rocha,3,1850,1110,5550,3330
+2024-04-10,Teclado Mecânico,Periféricos,Centro-Oeste,Marcos Ferreira,9,450,210,4050,1890
+2024-04-12,Notebook Ultra,Eletrônicos,Nordeste,Beatriz Alves,2,6200,3720,12400,7440
+2024-04-15,Webcam 4K,Periféricos,Sul,Ana Lima,5,480,240,2400,1200
+2024-04-18,Headset Pro,Periféricos,Norte,Carlos Souza,10,350,175,3500,1750
+2024-04-20,Mesa Gamer,Mobiliário,Sudeste,Juliana Rocha,2,980,490,1960,980
+2024-04-22,Mouse Gamer,Periféricos,Centro-Oeste,Marcos Ferreira,15,280,140,4200,2100
+2024-04-25,HD Externo 2TB,Armazenamento,Nordeste,Beatriz Alves,6,380,190,2280,1140
+2024-05-03,Notebook Pro,Eletrônicos,Sul,Ana Lima,5,3650,2190,18250,10950
+2024-05-05,Monitor 32pol,Monitores,Norte,Carlos Souza,3,2800,1680,8400,5040
+2024-05-08,SSD 2TB,Armazenamento,Sudeste,Juliana Rocha,10,720,360,7200,3600
+2024-05-10,Teclado Slim,Periféricos,Centro-Oeste,Marcos Ferreira,12,290,145,3480,1740
+2024-05-12,Notebook Ultra,Eletrônicos,Nordeste,Beatriz Alves,3,6500,3900,19500,11700
+2024-05-15,Headset Studio,Periféricos,Sul,Ana Lima,7,520,260,3640,1820
+2024-05-18,Mouse Sem Fio,Periféricos,Norte,Carlos Souza,20,180,90,3600,1800
+2024-05-20,Webcam 4K,Periféricos,Sudeste,Juliana Rocha,8,480,240,3840,1920
+2024-05-22,Cadeira Gamer,Mobiliário,Centro-Oeste,Marcos Ferreira,3,1500,750,4500,2250
+2024-05-25,Hub USB-C,Periféricos,Nordeste,Beatriz Alves,25,190,95,4750,2375
+2024-06-03,Notebook Pro,Eletrônicos,Sul,Ana Lima,6,3650,2190,21900,13140
+2024-06-05,Monitor 27pol,Monitores,Norte,Carlos Souza,4,1850,1110,7400,4440
+2024-06-08,SSD 1TB,Armazenamento,Sudeste,Juliana Rocha,18,480,240,8640,4320
+2024-06-10,Teclado Mecânico,Periféricos,Centro-Oeste,Marcos Ferreira,11,450,210,4950,2310
+2024-06-12,Notebook Ultra,Eletrônicos,Nordeste,Beatriz Alves,4,6500,3900,26000,15600
+2024-06-15,Headset Pro,Periféricos,Sul,Ana Lima,9,350,175,3150,1575
+2024-06-18,Mouse Gamer,Periféricos,Norte,Carlos Souza,22,280,140,6160,3080
+2024-06-20,Mesa Gamer,Mobiliário,Sudeste,Juliana Rocha,4,980,490,3920,1960
+2024-06-22,Webcam HD,Periféricos,Centro-Oeste,Marcos Ferreira,10,320,160,3200,1600
+2024-06-25,HD Externo 2TB,Armazenamento,Nordeste,Beatriz Alves,8,380,190,3040,1520

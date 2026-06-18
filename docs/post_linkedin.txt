@@ -1,0 +1,31 @@
+🤖 Controlei o Power BI com IA usando MCP — e foi mais rápido do que eu esperava.
+
+Em vez de escrever medidas DAX manualmente, eu digitei isso no Claude:
+
+"Crie uma medida de Receita Total usando a coluna Valor_Venda."
+
+E a IA respondeu com o código pronto, documentado e com sugestão de pasta.
+
+Fiz o mesmo para Margem %, Ticket Médio, crescimento MoM, ranking de produtos — tudo via linguagem natural.
+
+O que o modelo fez automaticamente:
+✅ Gerou 25+ medidas DAX
+✅ Criou a tabela dCalendario PT-BR completa
+✅ Explicou cada medida com contexto de uso
+✅ Sugeriu KPIs priorizados por área (P1 / P2 / P3)
+✅ Organizou tudo em display folders
+✅ Documentou o modelo inteiro em Markdown
+
+A stack foi simples: Python + Anthropic SDK + Model Context Protocol.
+Sem plugin. Sem extensão. Um script de ~150 linhas conectando linguagem natural ao Power BI.
+
+O que chamou atenção foi a qualidade do DAX gerado — DIVIDE() com fallback, RANKX com DENSE, DATESYTD, SAMEPERIODLASTYEAR. Não foi DAX básico.
+
+Para quem trabalha com BI e está explorando IA na prática: MCP é o protocolo que permite que modelos de linguagem usem ferramentas externas de forma estruturada. É o mesmo mecanismo que o Claude usa para acessar arquivos, APIs e sistemas.
+
+A tendência não é substituir o analista de BI — é eliminar o trabalho repetitivo para sobrar tempo para o que importa: análise, contexto de negócio e decisão.
+
+Projeto completo no GitHub com dataset, medidas DAX e servidor MCP 👇
+🔗 github.com/r9drig-tech/powerbi-ai-mcp
+
+#PowerBI #DAX #BusinessIntelligence #InteligenciaArtificial #MCP #Python #DataEngineering #Anthropic #BI #Dados

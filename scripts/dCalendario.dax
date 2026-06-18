@@ -1,0 +1,82 @@
+// ============================================================
+// dCalendario — Tabela Calendário DAX
+// Projeto: powerbi-ai-mcp | Gerada com Claude AI via MCP
+// ============================================================
+
+dCalendario =
+VAR _MinDate = MIN(Vendas[Data])
+VAR _MaxDate = MAX(Vendas[Data])
+
+RETURN
+ADDCOLUMNS(
+    CALENDAR(_MinDate, _MaxDate),
+
+    // ── Identificadores básicos ──────────────────────────────
+    "Ano",              YEAR([Date]),
+    "Mes",              MONTH([Date]),
+    "Dia",              DAY([Date]),
+
+    // ── Nome do mês (PT-BR) ──────────────────────────────────
+    "NomeMes",
+        SWITCH(MONTH([Date]),
+            1, "Janeiro",   2, "Fevereiro", 3, "Março",
+            4, "Abril",     5, "Maio",      6, "Junho",
+            7, "Julho",     8, "Agosto",    9, "Setembro",
+            10, "Outubro",  11, "Novembro", 12, "Dezembro"
+        ),
+
+    "MesAbrev",
+        SWITCH(MONTH([Date]),
+            1, "Jan", 2, "Fev", 3, "Mar", 4, "Abr",
+            5, "Mai", 6, "Jun", 7, "Jul", 8, "Ago",
+            9, "Set", 10, "Out", 11, "Nov", 12, "Dez"
+        ),
+
+    // ── Trimestre ────────────────────────────────────────────
+    "NumTrimestre",     ROUNDUP(MONTH([Date]) / 3, 0),
+    "Trimestre",        "T" & ROUNDUP(MONTH([Date]) / 3, 0),
+    "AnoTrimestre",     YEAR([Date]) & " T" & ROUNDUP(MONTH([Date]) / 3, 0),
+
+    // ── Semana ───────────────────────────────────────────────
+    "NumSemana",        WEEKNUM([Date], 2),          // segunda = início da semana
+    "DiaSemana",        WEEKDAY([Date], 2),           // 1=Seg, 7=Dom
+
+    "NomeDiaSemana",
+        SWITCH(WEEKDAY([Date], 2),
+            1, "Segunda-feira", 2, "Terça-feira",
+            3, "Quarta-feira",  4, "Quinta-feira",
+            5, "Sexta-feira",   6, "Sábado",
+            7, "Domingo"
+        ),
+
+    "DiaAbrev",
+        SWITCH(WEEKDAY([Date], 2),
+            1, "Seg", 2, "Ter", 3, "Qua",
+            4, "Qui", 5, "Sex", 6, "Sáb", 7, "Dom"
+        ),
+
+    // ── Chaves numéricas para sort ───────────────────────────
+    "AnoMes",           YEAR([Date]) * 100 + MONTH([Date]),   // ex: 202401
+    "AnoMesDia",        FORMAT([Date], "YYYYMMDD"),
+
+    // ── Flags booleanos ──────────────────────────────────────
+    "IsDiaSemana",      IF(WEEKDAY([Date], 2) <= 5, TRUE(), FALSE()),
+    "IsFimDeSemana",    IF(WEEKDAY([Date], 2) >= 6, TRUE(), FALSE()),
+
+    // ── Período relativo ─────────────────────────────────────
+    "EhMesAtual",       IF(EOMONTH([Date], 0) = EOMONTH(TODAY(), 0), TRUE(), FALSE()),
+    "EhAnoAtual",       IF(YEAR([Date]) = YEAR(TODAY()), TRUE(), FALSE()),
+
+    // ── Rótulo amigável ──────────────────────────────────────
+    "MesAno",           FORMAT([Date], "MMM/YYYY")
+)
+
+
+// ── Configurações de Sort (aplicar no modelo) ────────────────
+//
+// NomeMes       → sort by Mes
+// MesAbrev      → sort by Mes
+// NomeDiaSemana → sort by DiaSemana
+// DiaAbrev      → sort by DiaSemana
+// Trimestre     → sort by NumTrimestre
+// MesAno        → sort by AnoMes

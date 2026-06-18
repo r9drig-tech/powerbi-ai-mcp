@@ -1,0 +1,137 @@
+// ============================================================
+// Dashboard de Vendas — Medidas DAX
+// Projeto: powerbi-ai-mcp | github.com/r9drig-tech
+// Geradas com Claude AI via MCP
+// ============================================================
+
+
+// ── PASTA: 💰 Financeiro ─────────────────────────────────────
+
+Receita Total =
+SUM(Vendas[Valor_Venda])
+
+Custo Total =
+SUM(Vendas[Custo_Total])
+
+Lucro =
+[Receita Total] - [Custo Total]
+
+Margem % =
+DIVIDE(
+    [Lucro],
+    [Receita Total],
+    0
+)
+
+Ticket Médio =
+DIVIDE(
+    [Receita Total],
+    [Total Pedidos],
+    0
+)
+
+
+// ── PASTA: 📦 Vendas ─────────────────────────────────────────
+
+Total Pedidos =
+COUNTROWS(Vendas)
+
+Qtd Vendida =
+SUM(Vendas[Qtd])
+
+Receita por Unidade =
+DIVIDE(
+    [Receita Total],
+    [Qtd Vendida],
+    0
+)
+
+
+// ── PASTA: 📈 Crescimento ────────────────────────────────────
+
+Receita MêsAnterior =
+CALCULATE(
+    [Receita Total],
+    DATEADD(dCalendario[Data], -1, MONTH)
+)
+
+Crescimento MoM % =
+DIVIDE(
+    [Receita Total] - [Receita MêsAnterior],
+    [Receita MêsAnterior],
+    0
+)
+
+Receita AcumuladaAno =
+CALCULATE(
+    [Receita Total],
+    DATESYTD(dCalendario[Data])
+)
+
+Receita MesmoPeríodo AA =
+CALCULATE(
+    [Receita Total],
+    SAMEPERIODLASTYEAR(dCalendario[Data])
+)
+
+Crescimento YoY % =
+DIVIDE(
+    [Receita Total] - [Receita MesmoPeríodo AA],
+    [Receita MesmoPeríodo AA],
+    0
+)
+
+
+// ── PASTA: 🏆 Ranking ────────────────────────────────────────
+
+Rank Produto Receita =
+RANKX(
+    ALL(Vendas[Produto]),
+    [Receita Total],
+    ,
+    DESC,
+    DENSE
+)
+
+Top10 Produtos =
+IF(
+    [Rank Produto Receita] <= 10,
+    [Receita Total],
+    BLANK()
+)
+
+
+// ── PASTA: 🎯 Metas ──────────────────────────────────────────
+
+Meta Receita =
+SELECTEDVALUE(Metas[Meta_Receita], 500000)
+
+Atingimento Meta % =
+DIVIDE(
+    [Receita Total],
+    [Meta Receita],
+    0
+)
+
+Saldo vs Meta =
+[Receita Total] - [Meta Receita]
+
+
+// ── PASTA: 🔤 Formatação / Labels ───────────────────────────
+
+Label Crescimento MoM =
+VAR pct = [Crescimento MoM %]
+RETURN
+    IF(
+        ISBLANK(pct),
+        "—",
+        IF(pct >= 0,
+            "▲ " & FORMAT(pct, "0.0%"),
+            "▼ " & FORMAT(ABS(pct), "0.0%")
+        )
+    )
+
+Label Margem Color =
+IF([Margem %] >= 0.35, "#22c55e",
+    IF([Margem %] >= 0.20, "#f59e0b", "#ef4444")
+)
