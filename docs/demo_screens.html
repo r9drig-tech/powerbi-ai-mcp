@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Power BI + AI + MCP — Demo Screens</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #010409; font-family: 'Segoe UI', system-ui, sans-serif; padding: 40px 24px; }
+  .page-title { color: #f0f6fc; font-size: 18px; font-weight: 600; text-align: center; margin-bottom: 8px; }
+  .page-sub { color: #7d8590; font-size: 13px; text-align: center; margin-bottom: 40px; }
+  .page-sub a { color: #58a6ff; text-decoration: none; }
+
+  .scene-wrap { margin-bottom: 32px; max-width: 720px; margin-left: auto; margin-right: auto; }
+  .badge-scene { display: inline-block; background: #161b22; border: 0.5px solid #30363d; color: #8b949e; font-size: 10px; font-weight: 600; padding: 3px 10px; border-radius: 4px; margin-bottom: 10px; letter-spacing: 0.06em; text-transform: uppercase; }
+
+  .terminal { background: #0d1117; border-radius: 10px; border: 1px solid #30363d; overflow: hidden; font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace; font-size: 13px; box-shadow: 0 8px 32px rgba(0,0,0,0.6); }
+  .terminal-bar { background: #161b22; padding: 10px 16px; display: flex; align-items: center; gap: 7px; border-bottom: 1px solid #21262d; }
+  .dot { width: 11px; height: 11px; border-radius: 50%; }
+  .dot-r { background: #ff5f56; }
+  .dot-y { background: #ffbd2e; }
+  .dot-g { background: #27c93f; }
+  .terminal-title { font-size: 11px; color: #6e7681; margin: 0 auto; font-family: 'Segoe UI', sans-serif; }
+  .terminal-body { padding: 16px 20px; line-height: 1.75; }
+
+  .prompt-line { color: #7d8590; margin-bottom: 10px; }
+  .prompt-line .user { color: #58a6ff; font-weight: 600; }
+  .prompt-line .arr { color: #3fb950; }
+  .prompt-line .cmd { color: #e6edf3; }
+  .ai-label { color: #f778ba; font-weight: 600; }
+  .ai-note { color: #7d8590; font-size: 12px; }
+
+  .dax-block { background: #161b22; border: 1px solid #30363d; border-radius: 7px; padding: 12px 16px; margin: 8px 0 10px; line-height: 1.8; }
+  .dax-comment { color: #8b949e; }
+  .dax-fn { color: #d2a8ff; }
+  .dax-col { color: #79c0ff; }
+  .dax-op { color: #ff7b72; }
+  .dax-name { color: #e3b341; font-weight: 600; }
+  .dax-num { color: #79c0ff; }
+  .indent1 { padding-left: 20px; }
+  .indent2 { padding-left: 40px; }
+  .plain { color: #e6edf3; }
+  .result-note { color: #8b949e; font-size: 12px; margin-top: 4px; }
+
+  .kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin: 8px 0 4px; }
+  .kpi-item { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 8px 12px; }
+  .kpi-p { font-size: 10px; font-weight: 700; margin: 0 0 2px; letter-spacing: 0.04em; }
+  .p1 { color: #ff7b72; }
+  .p2 { color: #ffa657; }
+  .p3 { color: #3fb950; }
+  .kpi-name { color: #c9d1d9; font-size: 12px; margin: 0; }
+
+  .folder-block { background: #161b22; border: 1px solid #30363d; border-radius: 7px; padding: 12px 16px; margin: 8px 0; line-height: 2; }
+  .folder-title { color: #ffa657; font-weight: 600; }
+  .folder-sub { color: #6e7681; padding-left: 20px; }
+  .folder-measures { color: #79c0ff; }
+
+  .dash-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; margin: 10px 0 14px; }
+  .dash-card { background: #161b22; border: 1px solid #30363d; border-radius: 7px; padding: 10px 14px; }
+  .dash-label { font-size: 10px; color: #7d8590; margin: 0 0 4px; font-family: 'Segoe UI', sans-serif; }
+  .dash-val { font-size: 20px; font-weight: 600; color: #e6edf3; margin: 0; font-family: 'Segoe UI', sans-serif; }
+  .dash-delta { font-size: 10px; margin: 3px 0 0; font-family: 'Segoe UI', sans-serif; }
+  .delta-pos { color: #3fb950; }
+  .delta-neg { color: #ff7b72; }
+
+  .bar-section-title { color: #7d8590; font-size: 11px; margin: 4px 0 8px; font-family: 'Segoe UI', sans-serif; }
+  .bar-row { display: flex; align-items: center; gap: 8px; margin: 5px 0; }
+  .bar-label { font-size: 11px; color: #8b949e; width: 130px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: 'Segoe UI', sans-serif; }
+  .bar-track { flex: 1; background: #21262d; border-radius: 2px; height: 8px; }
+  .bar-fill { height: 8px; border-radius: 2px; }
+  .bar-val { font-size: 11px; color: #7d8590; width: 56px; text-align: right; font-family: 'Segoe UI', sans-serif; }
+</style>
+</head>
+<body>
+
+<p class="page-title">🤖 Power BI + AI + MCP</p>
+<p class="page-sub">Demo — 5 cenas | <a href="https://github.com/r9drig-tech/powerbi-ai-mcp">github.com/r9drig-tech/powerbi-ai-mcp</a></p>
+
+<!-- CENA 1 -->
+<div class="scene-wrap">
+  <div class="badge-scene">Cena 1 — Receita Total</div>
+  <div class="terminal">
+    <div class="terminal-bar">
+      <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+      <span class="terminal-title">powerbi-ai-mcp · mcp_server.py</span>
+    </div>
+    <div class="terminal-body">
+      <div class="prompt-line"><span class="user">rodrigo</span> <span class="arr">❯</span> <span class="cmd">Crie uma medida de Receita Total usando a coluna Valor_Venda</span></div>
+      <div><span class="ai-label">IA ❯</span> <span class="ai-note">Medida gerada · pasta: 💰 Financeiro</span></div>
+      <div class="dax-block">
+        <div><span class="dax-name">Receita Total</span> <span class="plain">=</span></div>
+        <div class="indent1"><span class="dax-fn">SUM</span><span class="plain">(</span><span class="dax-col">Vendas</span><span class="plain">[</span><span class="dax-col">Valor_Venda</span><span class="plain">])</span></div>
+      </div>
+      <div class="result-note">Soma todos os valores de venda da tabela Vendas. Pronta para uso no Power BI.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CENA 2 -->
+<div class="scene-wrap">
+  <div class="badge-scene">Cena 2 — Margem de Lucro</div>
+  <div class="terminal">
+    <div class="terminal-bar">
+      <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+      <span class="terminal-title">powerbi-ai-mcp · mcp_server.py</span>
+    </div>
+    <div class="terminal-body">
+      <div class="prompt-line"><span class="user">rodrigo</span> <span class="arr">❯</span> <span class="cmd">Crie uma medida de Margem de Lucro em percentual</span></div>
+      <div><span class="ai-label">IA ❯</span> <span class="ai-note">Medida gerada · pasta: 💰 Financeiro</span></div>
+      <div class="dax-block">
+        <div><span class="dax-name">Margem %</span> <span class="plain">=</span></div>
+        <div class="indent1"><span class="dax-fn">DIVIDE</span><span class="plain">(</span></div>
+        <div class="indent2"><span class="plain">[</span><span class="dax-col">Lucro</span><span class="plain">],</span></div>
+        <div class="indent2"><span class="plain">[</span><span class="dax-col">Receita Total</span><span class="plain">],</span></div>
+        <div class="indent2"><span class="dax-num">0</span>  <span class="dax-comment">// fallback divisão por zero</span></div>
+        <div class="indent1"><span class="plain">)</span></div>
+      </div>
+      <div class="result-note">Usa DIVIDE() com fallback 0 — nunca retorna erro em contexto vazio.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CENA 3 -->
+<div class="scene-wrap">
+  <div class="badge-scene">Cena 3 — KPIs sugeridos pela IA</div>
+  <div class="terminal">
+    <div class="terminal-bar">
+      <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+      <span class="terminal-title">powerbi-ai-mcp · mcp_server.py</span>
+    </div>
+    <div class="terminal-body">
+      <div class="prompt-line"><span class="user">rodrigo</span> <span class="arr">❯</span> <span class="cmd">Sugira KPIs para um dashboard executivo de vendas</span></div>
+      <div><span class="ai-label">IA ❯</span> <span class="ai-note">8 KPIs · ordenados por prioridade</span></div>
+      <div class="kpi-grid">
+        <div class="kpi-item"><p class="kpi-p p1">P1 — Crítico</p><p class="kpi-name">Receita Total</p></div>
+        <div class="kpi-item"><p class="kpi-p p1">P1 — Crítico</p><p class="kpi-name">Margem %</p></div>
+        <div class="kpi-item"><p class="kpi-p p1">P1 — Crítico</p><p class="kpi-name">Crescimento MoM %</p></div>
+        <div class="kpi-item"><p class="kpi-p p2">P2 — Importante</p><p class="kpi-name">Ticket Médio</p></div>
+        <div class="kpi-item"><p class="kpi-p p2">P2 — Importante</p><p class="kpi-name">Top 10 Produtos</p></div>
+        <div class="kpi-item"><p class="kpi-p p2">P2 — Importante</p><p class="kpi-name">Receita por Região</p></div>
+        <div class="kpi-item"><p class="kpi-p p3">P3 — Complementar</p><p class="kpi-name">Receita YTD</p></div>
+        <div class="kpi-item"><p class="kpi-p p3">P3 — Complementar</p><p class="kpi-name">Crescimento YoY %</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CENA 4 -->
+<div class="scene-wrap">
+  <div class="badge-scene">Cena 4 — Organização em pastas</div>
+  <div class="terminal">
+    <div class="terminal-bar">
+      <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+      <span class="terminal-title">powerbi-ai-mcp · mcp_server.py</span>
+    </div>
+    <div class="terminal-body">
+      <div class="prompt-line"><span class="user">rodrigo</span> <span class="arr">❯</span> <span class="cmd">Organize as medidas em pastas (display folders)</span></div>
+      <div><span class="ai-label">IA ❯</span> <span class="ai-note">6 display folders geradas automaticamente</span></div>
+      <div class="folder-block">
+        <div>📁 <span class="folder-title">💰 Financeiro</span></div>
+        <div class="folder-sub">└─ <span class="folder-measures">Receita Total · Custo Total · Lucro · Margem % · Ticket Médio</span></div>
+        <div>📁 <span class="folder-title">📦 Vendas</span></div>
+        <div class="folder-sub">└─ <span class="folder-measures">Total Pedidos · Qtd Vendida · Receita por Unidade</span></div>
+        <div>📁 <span class="folder-title">📈 Crescimento</span></div>
+        <div class="folder-sub">└─ <span class="folder-measures">Crescimento MoM % · YoY % · Receita YTD · Mês Anterior</span></div>
+        <div>📁 <span class="folder-title">🏆 Ranking</span></div>
+        <div class="folder-sub">└─ <span class="folder-measures">Rank Produto Receita · Top 10 Produtos</span></div>
+        <div>📁 <span class="folder-title">🎯 Metas</span></div>
+        <div class="folder-sub">└─ <span class="folder-measures">Meta Receita · Atingimento Meta % · Saldo vs Meta</span></div>
+        <div>📁 <span class="folder-title">🔤 Labels</span></div>
+        <div class="folder-sub">└─ <span class="folder-measures">Label Crescimento MoM · Label Margem Color</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CENA 5 -->
+<div class="scene-wrap">
+  <div class="badge-scene">Cena 5 — Dashboard pronto</div>
+  <div class="terminal">
+    <div class="terminal-bar">
+      <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+      <span class="terminal-title">Dashboard de Vendas · Jan–Jun 2024 · powerbi-ai-mcp</span>
+    </div>
+    <div class="terminal-body">
+      <div class="dash-grid">
+        <div class="dash-card"><p class="dash-label">Receita Total</p><p class="dash-val">R$ 487K</p><p class="dash-delta delta-pos">▲ 18,4% vs período ant.</p></div>
+        <div class="dash-card"><p class="dash-label">Margem %</p><p class="dash-val">46,8%</p><p class="dash-delta delta-pos">▲ 2,1 pp</p></div>
+        <div class="dash-card"><p class="dash-label">Ticket Médio</p><p class="dash-val">R$ 4.062</p><p class="dash-delta delta-pos">▲ 7,3%</p></div>
+        <div class="dash-card"><p class="dash-label">Lucro</p><p class="dash-val">R$ 228K</p><p class="dash-delta delta-pos">▲ 21,2%</p></div>
+        <div class="dash-card"><p class="dash-label">Total Pedidos</p><p class="dash-val">120</p><p class="dash-delta delta-pos">▲ 10,0%</p></div>
+        <div class="dash-card"><p class="dash-label">Qtd Vendida</p><p class="dash-val">1.284 un</p><p class="dash-delta delta-neg">▼ 1,8%</p></div>
+      </div>
+      <p class="bar-section-title">Top 5 produtos por receita</p>
+      <div class="bar-row"><span class="bar-label">Notebook Ultra</span><div class="bar-track"><div class="bar-fill" style="width:100%;background:#58a6ff;"></div></div><span class="bar-val">R$ 101K</span></div>
+      <div class="bar-row"><span class="bar-label">Notebook Pro</span><div class="bar-track"><div class="bar-fill" style="width:85%;background:#58a6ff;"></div></div><span class="bar-val">R$ 86K</span></div>
+      <div class="bar-row"><span class="bar-label">SSD 1TB</span><div class="bar-track"><div class="bar-fill" style="width:45%;background:#d2a8ff;"></div></div><span class="bar-val">R$ 45K</span></div>
+      <div class="bar-row"><span class="bar-label">Monitor 27pol</span><div class="bar-track"><div class="bar-fill" style="width:40%;background:#d2a8ff;"></div></div><span class="bar-val">R$ 40K</span></div>
+      <div class="bar-row"><span class="bar-label">Cadeira Ergonômica</span><div class="bar-track"><div class="bar-fill" style="width:22%;background:#3fb950;"></div></div><span class="bar-val">R$ 22K</span></div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

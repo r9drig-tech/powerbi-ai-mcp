@@ -223,12 +223,18 @@ IA  > **KPIs para Dashboard Executivo — Vendas**
 
 ## 🎬 Demo
 
-> **Gravação com OBS Studio:** Claude Desktop à esquerda + Power BI à direita.
-> Os prompts são digitados em linguagem natural e as medidas aparecem prontas.
+> Claude Desktop à esquerda + Power BI à direita.
+> Prompts em linguagem natural → medidas DAX prontas em segundos.
 
-```
-[Screenshot do vídeo — em breve]
-```
+**→ [Abrir demo interativo](docs/demo_screens.html)**
+
+| Cena | Prompt | Resultado |
+|------|--------|-----------|
+| 1 | `Crie uma medida de Receita Total` | DAX gerado + pasta sugerida |
+| 2 | `Crie Margem de Lucro em percentual` | DIVIDE() com fallback |
+| 3 | `Sugira KPIs para dashboard executivo` | 8 KPIs priorizados P1/P2/P3 |
+| 4 | `Organize as medidas em pastas` | 6 display folders automáticas |
+| 5 | Dashboard pronto | 6 KPIs + Top 5 produtos |
 
 ---
 
