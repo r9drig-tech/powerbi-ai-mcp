@@ -10,7 +10,7 @@
 
 **Criação de medidas DAX, explicação de métricas, sugestão de KPIs e organização do modelo — tudo via linguagem natural.**
 
-[📺 Assistir Demo](#demo) · [🚀 Começar](#instalação) · [📊 Ver Dashboard](#dashboard) · [📝 Medidas DAX](#medidas-geradas)
+[🚀 Começar](#instalação) · [📊 Ver Dashboard](#dashboard) · [📝 Medidas DAX](#medidas-geradas)
 
 </div>
 
@@ -270,7 +270,7 @@ IA  > **KPIs para Dashboard Executivo — Vendas**
 Analista de BI & Dados | Em transição para Engenharia de Dados & IA
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/rodrigo-salgado-bi)
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/r9drig-tech)
+
 
 ---
 
